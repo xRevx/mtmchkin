@@ -56,9 +56,7 @@ void Player::addCoins(int amount){
     m_coins += amount;
 }
 
-bool const Player::isKnockedOut(){
-    return m_HP == 0;
-}
+
 
 bool Player::pay(int amount){
     if(m_coins >= amount){
@@ -67,6 +65,14 @@ bool Player::pay(int amount){
     }
     std::cout << "Not enough coins" << std::endl;
     return false;
+}
+
+bool const Player::isKnockedOut(){
+    return m_HP == 0;
+}
+
+int const Player::getAttackStrength(){
+    return m_level + m_force;
 }
 
 

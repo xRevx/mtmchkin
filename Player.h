@@ -21,4 +21,5 @@ public:
     bool pay(int amount);
 
     bool const isKnockedOut();
+    int const getAttackStrength();
 };
