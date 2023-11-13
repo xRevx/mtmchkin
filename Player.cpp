@@ -5,7 +5,7 @@
 #include <math.h>
 #include <iostream>
 
-Player::Player(char* name, int maxHP, int force){
+Player::Player(const char* name, int maxHP, int force){
     m_name = name;
     m_maxHP = maxHP;
     m_HP = m_maxHP;

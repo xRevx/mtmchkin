@@ -1,4 +1,4 @@
-#pragma once 
+
 #include "Card.h"
 
 Card::Card(CardType type, const CardStats& stats){
@@ -6,6 +6,7 @@ Card::Card(CardType type, const CardStats& stats){
     m_stats = stats;
 }
 void Card::applyEncounter(Player& player) const{
+    bool win = false;
     switch(m_effect){
 
         case CardType::Treasure:
@@ -13,7 +14,6 @@ void Card::applyEncounter(Player& player) const{
             break;
 
         case CardType::Battle:
-            bool win = false;
             if(player.getAttackStrength() >= m_stats.force){
                 player.addCoins(m_stats.loot);
                 win = true;
@@ -32,6 +32,8 @@ void Card::applyEncounter(Player& player) const{
         case CardType::Heal:
             player.pay(m_stats.cost);
             player.heal(m_stats.heal);
+            break;
+        default:
             break;
     }
 }
